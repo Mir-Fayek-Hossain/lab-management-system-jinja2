@@ -1,0 +1,18 @@
+.icon{
+    margin: 7px;
+    width: 30px;
+    transition: all .4s ease;
+}
+.icon:hover {
+    transition: all .4s ease;
+    width: 45px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .btn-border-4 {
+      margin-top: 5px;
+  }
+}
+.navbar-toggler{
+    margin-right: 10px;
+}

@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>UODA-Lab Management</title>
+    <link rel="shortcut icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDt3UtZX_rk0slCVjswq6dIS9aY-GDixb_hg&usqp=CAU">
+
+</head>
+<style>
+    .btn {
+        position: relative;
+        display: inline-block;
+        margin: 15px;
+        padding: 12px 27px;
+        text-align: center;
+        font-size: 16px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        color: #999999;
+        background: #ffffff;
+        border: 3px solid #999999;
+        cursor: pointer;
+        transition: ease-out 0.5s;
+        -webkit-transition: ease-out 0.5s;
+        -moz-transition: ease-out 0.5s;
+    }
+
+
+    .btn.btn-border-3::after,
+    .btn.btn-border-3::before {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        transition: .5s;
+    }
+
+    .btn.btn-border-3::after {
+        top: -9px;
+        left: -9px;
+        border-top: 3px solid transparent;
+        border-left: 3px solid transparent;
+    }
+
+    .btn.btn-border-3::before {
+        bottom: -9px;
+        right: -9px;
+        border-bottom: 3px solid transparent;
+        border-right: 3px solid transparent;
+    }
+
+    .btn.btn-border-3:hover {
+        color: #222222;
+    }
+
+    .btn.btn-border-3:hover::after,
+    .btn.btn-border-3:hover::before {
+        width: 30px;
+        height: 30px;
+        border-color: #222222;
+    }
+
+
+    .btn.btn-border-4::after,
+    .btn.btn-border-4::before {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        transition: .5s;
+    }
+
+    .btn.btn-border-4::after {
+        top: -9px;
+        left: -9px;
+        border-top: 3px solid transparent;
+        border-left: 3px solid transparent;
+    }
+
+    .btn.btn-border-4::before {
+        bottom: -9px;
+        right: -9px;
+        border-bottom: 3px solid transparent;
+        border-right: 3px solid transparent;
+    }
+
+    .btn.btn-border-4:hover {
+        color: #222222;
+    }
+
+    .btn.btn-border-4:hover::after,
+    .btn.btn-border-4:hover::before {
+        width: calc(100% + 15px);
+        height: calc(100% + 15px);
+        border-color: #222222;
+    }
+
+    select {
+        border: 1px solid rgb(187, 121, 0);
+        border-radius: 5px;
+    }
+
+    .formContainer {
+        padding: 70px 30px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 5px 25px black;
+    }
+
+    .formContainer h2 {
+        padding-left: 10px;
+        margin-bottom: 30px;
+        border-left: 5px solid red;
+    }
+
+    .formContainer .inputBox {
+        position: relative;
+        width: 300px;
+        height: 40px;
+        margin-bottom: 20px;
+    }
+
+    .formContainer .inputBox:last-child {
+        margin-bottom: 0;
+    }
+
+    .formContainer .inputBox input {
+        position: absolute;
+        z-index: 1;
+        background-color: transparent;
+        width: 100%;
+        border: 1px solid rgb(187, 121, 0);
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #111;
+        font-weight: 300;
+    }
+
+    .formContainer .inputBox span {
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        padding: 10px;
+        transition: .5s;
+    }
+
+    .formContainer .inputBox input:focus~span,
+    .formContainer .inputBox input:valid~span {
+        transform: translateX(3px) translateY(-10px);
+        font-size: 13px;
+        background-color: white;
+        padding: 0 8px 0 8px;
+        z-index: 2;
+    }
+
+    .formOptions {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .formOptions p {
+        margin-right: 15px;
+    }
+
+    .formOptions input {
+        background: linear-gradient(90deg, rgb(190, 179, 18), rgb(255, 17, 0));
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 500;
+        box-shadow: 5px 5px 20px black;
+        transition: .3s;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    input:active {
+        box-shadow: none;
+    }
+
+    input[type="submit"] {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+</style>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <div class="d-flex justify-content-between bg-info">
+        <h1>WELCOME ADMIN</h1>
+        <div>
+            <a class="btn btn-border-4" href=#p>Insert Data</a>
+            <a href="/logout" class="btn btn-outline-danger btn-border-4">Logout</a>
+        </div>
+    </div>
+    <table class="table table-success table-hover ">
+        <tr class="text-center">
+            <th>ID</th>
+            <th>Day</th>
+            <th>1st period</th>
+            <th>2nd period</th>
+            <th>3rd period</th>
+            <th>LAB No.</th>
+            <th>Course Name</th>
+            <th>Course Teacher</th>
+            <th colspan="2">
+                Operations
+            </th>
+        </tr>
+        {% for lab in labDetails %}
+        <tr class="text-center">
+            <td>{{lab[0]}}</td>
+            <td style="text-transform: capitalize;">{{lab[1]}}</td>
+            <td>
+                {% if lab[2]==None%}
+                X
+                {% else %}
+                {{lab[2]}}
+                {% endif %}
+            </td>
+            <td>
+                {% if lab[3]==None%}
+                X
+                {% else %}
+                {{lab[3]}}
+                {% endif %}
+            </td>
+            <td>
+                {% if lab[4]==None%}
+                X
+                {% else %}
+                {{lab[4]}}
+                {% endif %}
+            </td>
+
+            <td>{{lab[5]}}</td>
+            <td>{{lab[6]}}</td>
+            <td>{{lab[7]}}</td>
+            <td>
+                <a style="color: black;" href="/update/{{lab[0]}}">Update</a>
+            </td>
+            <td>
+                <a style="color: black;" href="/delete/{{lab[0]}}">Delete</a>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+    <div class="container formContainer ">
+        <form method="POST" action="/admin">
+            <h1 id="p">Insert data</h1>
+            <div class=" d-flex justify-content-evenly">
+                <div>
+                    <select class="inputBox" name="day" id="na" class="form-select form-select-sm"
+                        aria-label=".form-select-sm example">
+                        <option selected>Select day</option>
+                        <option value="sunday">Sunday</option>
+                        <option value="monday">Monday</option>
+                        <option value="tuesday">Tuesday</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="thursday">Thursday</option>
+                    </select>
+                    <br>
+                    <div class="inputBox">
+                        <input type="text" name="courseCode" required="required">
+                        <span>Course Name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="courseTeacher" required="required">
+                        <span>Course Teacher</span>
+                    </div>
+                </div>
+                <div>
+                    <select class="inputBox" name="time" id="na" class="form-select form-select-sm"
+                        aria-label=".form-select-sm example">
+                        <option selected>Select time</option>
+                        <option value="1st">10:00am-11:25am</option>
+                        <option value="2nd">11:30am-1:00pm</option>
+                        <option value="3rd">1:05pm-2:30pm</option>
+                    </select>
+                    <br><br>
+                    <select class="inputBox" name="lab" id="na" class="form-select form-select-sm"
+                        aria-label=".form-select-sm example">
+                        <option selected>Select Lab Room</option>
+                        <option value="LAB-1">Lab 1</option>
+                        <option value="LAB-2">Lab 2</option>
+                        <option value="LAB-3">Lab 3</option>
+                    </select>
+                    <br><br>
+
+
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="btn btn-border-3">
+                    <input type="submit" value="INSERT">
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+
+</body>
+
+</html>
